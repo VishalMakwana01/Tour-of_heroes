@@ -15,15 +15,16 @@ export class HeroDetailComponent implements OnInit {
     private location: Location) { }
 
 
-  getHero() {
-    //const id = +this.route.snapshot.paramMap.get('id');
-    var id = 11;
-    this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
-  }
+
 
   ngOnInit(): void {
     this.getHero();
+  }
+
+  getHero(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.heroService.getHero(id)
+      .subscribe(hero => this.hero = hero);
   }
 
 }
